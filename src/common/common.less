@@ -1,0 +1,111 @@
+body{
+  background-color: #f3f5f9;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul, li, dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+//特殊字体
+@font-face {
+  font-family: 'pang';
+  src: url('../common/font/pang.ttf') format('eot');/*IE*/
+  src: url('../common/font/pang.ttf') format('woff'), url('../common/font/pang.ttf') format('truetype');/*non-IE*/
+}
+
+// 修改滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  min-height: 15px;
+  background: rgba(0, 0, 0, .2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #fff;
+}
+
+// 多行省略
+.omit-words-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+}
+
+.omit-words-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+
+.omit-words-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+.omit-words-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}
+
+.omit-words-5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+}
+.omit-words-6 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+}
+
+// 应用iconfont
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+// 通用板块样式
+.part-box{
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
