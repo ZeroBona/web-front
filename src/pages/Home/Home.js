@@ -9,7 +9,7 @@ function Home(props){
                     
                 </div>
                 <div className="home-content-read part-box">
-                    阅读
+                    修改一大拿东西
                 </div>
             </div>
             <div className="home-side">
