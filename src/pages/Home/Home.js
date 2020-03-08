@@ -13,7 +13,7 @@ function Home(props){
                 </div>
             </div>
             <div className="home-side">
-                <div className="author-info part-box">王强</div>
+                <div className="author-info part-box">依旧零博纳</div>
             </div>
         </div>
 
