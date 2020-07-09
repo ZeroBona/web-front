@@ -1,12 +1,16 @@
-import React from "react"
-import './Read.less'
+import React, { useState } from "react";
+import "./Read.less";
+import ListItem from "../../common/components/ListItem/ListItem";
 
-function Read(){
-    return (
-        <div className={'read'}>
-            读后感
-        </div>
-    )
+function Read() {
+  let [blogList] = useState([1, 2]);
+  return (
+    <div className={"read"}>
+      {blogList.map((item) => {
+        return <ListItem key={item}></ListItem>;
+      })}
+    </div>
+  );
 }
 
-export default Read
+export default Read;

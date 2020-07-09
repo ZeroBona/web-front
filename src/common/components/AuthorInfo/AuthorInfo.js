@@ -8,7 +8,7 @@ import QrcodeZhifubaoImg from "./images/qrcode-zhifubao.jpg";
 
 function AuthorInfo() {
     return (
-        <div className="author-info">
+        <div className="part-box author-info">
             <img className="author-logo" src={LogoImg} alt="无法加载" />
             <h3 className="author-name">依旧零博纳</h3>
             <Divider plain="true">社交账号</Divider>

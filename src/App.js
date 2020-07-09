@@ -1,82 +1,81 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import './App.less'
-import { Menu } from 'antd'
-import Home from './pages/Home/Home'
-import Blog from './pages/Blog/Blog'
-import Read from './pages/Read/Read'
-import Detail from './pages/Detail/Detail'
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.less";
+import { Menu, Affix } from "antd";
+import Home from "./pages/Home/Home";
+import Blog from "./pages/Blog/Blog";
+import Read from "./pages/Read/Read";
+import Detail from "./pages/Detail/Detail";
 
 function App(props) {
   const [menuList] = useState([
     {
-      name: '首页',
-      icon: 'icon-home',
-      url: '/',
+      name: "首页",
+      icon: "icon-home",
+      url: "/",
     },
     {
-      name: '博客',
-      icon: 'icon-code',
-      url: '/blog',
+      name: "博客",
+      icon: "icon-code",
+      url: "/blog",
     },
     {
-      name: '阅读',
-      icon: 'icon-book',
-      url: '/read',
+      name: "阅读",
+      icon: "icon-book",
+      url: "/read",
     },
-  ])
-  const [activeMenuIndex, setActiveMenuIndex] = useState(() => {
-    let currentUrl = window.location.pathname
-    let currentIndex = 0
-    menuList.map((item, index) => {
-      if (item.url === currentUrl) {
-        currentIndex = index
-      }
-    })
-    return currentIndex
-  })
+  ]);
+
+  // 根据页面url获取到当前应该高亮的菜单
+  function getDefaultCurrentMenuUrl(){
+    let defaultCurrentMenuUrl = '/'
+    let pathname = window.location.pathname
+    if(pathname){
+      let pathnameArr = pathname.split('/')
+      defaultCurrentMenuUrl = `/${pathnameArr[1]}`
+    }
+    return defaultCurrentMenuUrl
+  }
+
+  let [currentMenuUrl, setCurrentMenuUrl] = useState(getDefaultCurrentMenuUrl());
+
+  function handleClickMenu(e) {
+    setCurrentMenuUrl(e.key);
+  }
 
   return (
     <div className="app">
       <Router>
-        <header className="app-header">
-          <div className="app-header-box">
-            <div className="app-header-logo">
-              <h2>依旧零博纳</h2>
+        <Affix offsetTop={0}>
+          <header className="app-header">
+            <div className="app-header-box">
+              <div className="app-header-logo">
+                <h2>依旧零博纳</h2>
+              </div>
+              <nav className="app-header-nav">
+                <Menu
+                  onClick={handleClickMenu}
+                  selectedKeys={[currentMenuUrl]}
+                  mode="horizontal"
+                >
+                  {menuList.map((item, index) => {
+                    return (
+                      <Menu.Item key={item.url}>
+                        <svg className="icon" aria-hidden="true">
+                          <use xlinkHref={"#" + item.icon} />
+                        </svg>
+                        <Link className="link" to={item.url}>
+                          {item.name}
+                        </Link>
+                      </Menu.Item>
+                    );
+                  })}
+                </Menu>
+              </nav>
             </div>
-            <nav className="app-header-nav">
-              {/* <ul>
-                                {menuList.map((item, index) => {
-                                    return (
-                                        <li className={index === activeMenuIndex? 'active': ''}
-                                            onClick={() => {setActiveMenuIndex(index)}}
-                                            key={item + index}>
-                                            <svg className="icon" aria-hidden="true">
-                                                <use xlinkHref={"#" + item.icon}/>
-                                            </svg>
-                                            <Link className="link" to={item.url}>{item.name}</Link>
-                                        </li>
-                                    )
-                                })}
-                            </ul> */}
-              <Menu selectedKeys={['首页']} 
-                  mode="horizontal">
-                {menuList.map((item, index) => {
-                  return (
-                    <Menu.Item key={item.name}>
-                      <svg className="icon" aria-hidden="true">
-                        <use xlinkHref={'#' + item.icon} />
-                      </svg>
-                      <Link className="link" to={item.url}>
-                        {item.name}
-                      </Link>
-                    </Menu.Item>
-                  )
-                })}
-              </Menu>
-            </nav>
-          </div>
-        </header>
+          </header>
+        </Affix>
+
         <div className="app-content">
           <div className="app-content-box">
             <Switch>
@@ -89,7 +88,7 @@ function App(props) {
         </div>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
