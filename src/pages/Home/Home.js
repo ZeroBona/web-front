@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Affix } from "antd";
 import "./Home.less";
+import axios from 'axios'
 import ListItem from "../../common/components/ListItem/ListItem";
 import AuthorInfo from "../../common/components/AuthorInfo/AuthorInfo";
 
 function Home(props) {
   let [blogList] = useState([1, 2, 3, 4]);
   let [readList] = useState([1, 2, 3, 4, 5]);
+
+  axios.get('http://127.0.0.1:7001/')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
   return (
     <div className="home">
