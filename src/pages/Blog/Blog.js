@@ -5,7 +5,7 @@ import ListItem from "../../common/components/ListItem/ListItem";
 function Blog() {
   let [blogList] = useState([1, 2, 3, 4, 5, 6, 7]);
   return (
-    <div className={"blog"}>
+    <div className="blog part-box">
       {blogList.map((item) => {
         return <ListItem key={item}></ListItem>;
       })}
