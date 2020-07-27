@@ -19,7 +19,7 @@ class ListItem extends Component {
       >
         <div className="item-info1">
           <h3 className="item-title omit-words-1">
-            这是一首简单的歌，唱出我们的曲折
+            2020年新冠肺炎取得阶段性成功
           </h3>
           <span className="item-time">2020-05-13 07:15:33</span>
         </div>
